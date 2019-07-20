@@ -25,7 +25,86 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
+				<section><html>
+<body>
+    
+<script>
+
+window.klarnaAsyncCallback = function () {
+
+    
+  Klarna.Payments.init({
+  client_token: 'eyJhbGciOiJSUzI1NiJ9.ewogICJzZXNzaW9uX2lkIiA6ICIxNGE2MzZjMS1mNTczLTdmZWMtOWRhYi1iNmJlMGRhNjAyMzYiLAogICJiYXNlX3VybCIgOiAiaHR0cHM6Ly9rbGFybmEtcGF5bWVudHMtZXUucGxheWdyb3VuZC5rbGFybmEuY29tIiwKICAiZGVzaWduIiA6ICJrbGFybmEiLAogICJsYW5ndWFnZSIgOiAibmwiLAogICJwdXJjaGFzZV9jb3VudHJ5IiA6ICJOTCIsCiAgInRyYWNlX2Zsb3ciIDogZmFsc2UsCiAgImVudmlyb25tZW50IiA6ICJwbGF5Z3JvdW5kIiwKICAibWVyY2hhbnRfbmFtZSIgOiAiUmVjdXJyaW5nIiwKICAic2Vzc2lvbl90eXBlIiA6ICJQQVlNRU5UUyIsCiAgImNsaWVudF9ldmVudF9iYXNlX3VybCIgOiAiaHR0cHM6Ly9ldnQucGxheWdyb3VuZC5rbGFybmEuY29tIiwKICAiZXhwZXJpbWVudHMiIDogWyBdCn0.EoLW5w7QcVwFc_Wh_E0s51NCRz3T8t6veNrBZkuXcC9TQZnyvdzS9-xD_XmCUllKCwC8kjDkMLPAhCRu_FdaB36HgIRLKH8iz6CuFxLFZMJn-dWMMPKHEzf5ALQh-snx2RiY1pMlzs34-AB4Abdp-fYS7XaUNyZFSnyT7gMp8U7Xrd6goHU4_uKq__6iGgXcYe78h12e2L4nwtKji9IaBC52-45Es1Gv6TbvoL3BxQaNdk38zAkTCq0HsuxSA88_KtKGXjA0ckvIo8p2AaqOqgo9eylKpE3eNZWaJhZkdaoD_COT_HB-8aOCTOXkSJgxK5fGgYcj6ujX8wE0jIGJxw'
+    }, function(res) {
+	  console.debug(res);
+	})
+ 
+	Klarna.Payments.load({
+	  container: '#klarna-payments-container',
+      instance_id: 'authorize-pay-later',
+    payment_method_categories: ['pay_later',]
+
+	 }, function(res) {
+	  console.debug(res);
+	})
+ };
+
+function authorizepl() {
+    console.log("authorize call triggered");
+
+	Klarna.Payments.authorize({
+     instance_id: 'authorize-pay-later'}, 
+ {
+	
+        "billing_address": { 
+            "given_name": "Testperson-nl",
+			"family_name": "Approved",
+			"email": "test@klarna.com",
+			"title": "Mr",
+			"street_address": "Neherkade 1",
+			"street_address2": "XI",
+			"postal_code": "2521VA",
+			"city": "Gravenhage",
+			"phone": "0612345678",
+			"country": "NL"
+		},
+        
+        "shipping_address": { 
+            "given_name": "Testperson-nl",
+			"family_name": "Approved",
+			"email": "test@klarna.com",
+			"title": "Mr",
+			"street_address": "Neherkade 1",
+			"street_address2": "XI",
+			"postal_code": "2521VA",
+			"city": "Gravenhage",
+			"phone": "0612345678",
+			"country": "NL"
+		},
+		"customer": { 
+			"date_of_birth": "",
+
+		},
+	 },
+ function(res) {
+	  console.debug(res);
+	})
+};
+
+
+</script>
+<script src="https://x.klarnacdn.net/kp/lib/v1/api.js" async></script>
+
+
+<div id="klarna-payments-container"></div>
+
+<button text="buy" onClick="authorizepl()">Betalen</button>
+
+</body>
+</html>
+
+
+</section>
 				<section>Slide 2</section>
 			</div>
 		</div>
